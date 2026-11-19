@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US">
+  <info>
+    <title>ChemistrySelect Full Article Titles - Mendeley Custom</title>
+    <id>http://www.zotero.org/styles/chemistryselect-full-article-titles-mendeley-custom</id>
+    <link href="http://www.zotero.org/styles/chemistryselect-full-article-titles-mendeley-custom" rel="self"/>
+    <category citation-format="numeric"/>
+    <category field="chemistry"/>
+    <updated>2026-11-20T00:00:00+00:00</updated>
+  </info>
+  <macro name="authors">
+    <names variable="author">
+      <name delimiter=", " initialize-with=". " and="none"/>
+      <substitute>
+        <names variable="editor"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="publication">
+    <group delimiter=" ">
+      <text variable="container-title" font-style="italic"/>
+      <text variable="volume" font-weight="bold" suffix=","/>
+      <date variable="issued" prefix="(" suffix=")">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+  <macro name="pages">
+    <choose>
+      <if variable="page">
+        <text variable="page" prefix=": "/>
+      </if>
+      <else-if variable="article-number">
+        <text variable="article-number" prefix=": "/>
+      </else-if>
+    </choose>
+  </macro>
+  <citation collapse="citation-number">
+    <layout delimiter="," prefix="[" suffix="]">
+      <text variable="citation-number" vertical-align="sup"/>
+    </layout>
+  </citation>
+  <bibliography et-al-min="20" et-al-use-first="19" entry-spacing="0">
+    <layout>
+      <text variable="citation-number" prefix="[" suffix="] "/>
+      <group delimiter=" ">
+        <text macro="authors" suffix=","/>
+        <text variable="title" quotes="true"/>
+        <group>
+          <text macro="publication"/>
+          <text macro="pages"/>
+        </group>
+        <text variable="DOI" prefix="https://doi.org/"/>
+      </group>
+      <text value="."/>
+    </layout>
+  </bibliography>
+</style>
