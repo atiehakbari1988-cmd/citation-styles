@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US">
+  <info>
+    <title>ChemistrySelect Full Titles 2026 - Mendeley</title>
+    <id>http://www.zotero.org/styles/chemistryselect-full-titles-2026-mendeley</id>
+    <link href="http://www.zotero.org/styles/chemistryselect-full-titles-2026-mendeley" rel="self"/>
+    <author><name>Custom citation style</name></author>
+    <category citation-format="numeric"/>
+    <category field="chemistry"/>
+    <updated>2026-11-20T00:00:00+00:00</updated>
+  </info>
+  <macro name="authors">
+    <names variable="author">
+      <name initialize-with=". " delimiter=", " and="none"/>
+      <substitute><names variable="editor"/></substitute>
+    </names>
+  </macro>
+  <citation collapse="citation-number">
+    <layout delimiter="," vertical-align="sup">
+      <text variable="citation-number" prefix="[" suffix="]"/>
+    </layout>
+  </citation>
+  <bibliography entry-spacing="0">
+    <layout>
+      <text variable="citation-number" prefix="[" suffix="] "/>
+      <text macro="authors" suffix=", "/>
+      <text variable="title" quotes="true" suffix=" "/>
+      <text variable="container-title" font-style="italic" suffix=" "/>
+      <text variable="volume" font-weight="bold" suffix=", "/>
+      <date variable="issued" prefix="(" suffix=")"><date-part name="year"/></date>
+      <text variable="page" prefix=": "/>
+      <text variable="DOI" prefix=", https://doi.org/"/>
+      <text value="."/>
+    </layout>
+  </bibliography>
+</style>
