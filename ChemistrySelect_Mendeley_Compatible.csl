@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US">
+  <info>
+    <title>ChemistrySelect 2026 - Full Titles and DOI (Custom)</title>
+    <id>http://www.zotero.org/styles/chemistryselect-2026-full-titles-doi-custom</id>
+    <link href="http://www.zotero.org/styles/chemistryselect-2026-full-titles-doi-custom" rel="self"/>
+    <author><name>Custom ChemistrySelect Style</name></author>
+    <category citation-format="numeric"/>
+    <updated>2026-11-20T00:00:00+00:00</updated>
+  </info>
+  <macro name="author">
+    <names variable="author">
+      <name name-as-sort-order="" initialize-with=". " delimiter=", " and="none"/>
+      <substitute><names variable="editor"/></substitute>
+    </names>
+  </macro>
+  <macro name="journal">
+    <group delimiter=" ">
+      <text variable="container-title" font-style="italic"/>
+      <text variable="volume" font-weight="bold" suffix=","/>
+      <date variable="issued" prefix="(" suffix=")"><date-part name="year"/></date>
+    </group>
+  </macro>
+  <citation collapse="citation-number">
+    <layout delimiter="," vertical-align="sup">
+      <text variable="citation-number" prefix="[" suffix="]"/>
+    </layout>
+  </citation>
+  <bibliography entry-spacing="0" et-al-min="20" et-al-use-first="19">
+    <layout>
+      <text variable="citation-number" prefix="[" suffix="] "/>
+      <group delimiter=" ">
+        <text macro="author" suffix=","/>
+        <text variable="title" quotes="true"/>
+        <group>
+          <text macro="journal"/>
+          <text variable="page" prefix=": "/>
+        </group>
+        <text variable="DOI" prefix="https://doi.org/"/>
+      </group>
+      <text value="."/>
+    </layout>
+  </bibliography>
+</style>
