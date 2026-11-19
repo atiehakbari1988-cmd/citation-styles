@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US">
+  <info>
+    <title>ChemistrySelect - New Template Full Titles (Custom 2026)</title>
+    <id>http://www.zotero.org/styles/chemistryselect-new-template-full-titles-custom-2026</id>
+    <link href="http://www.zotero.org/styles/chemistryselect-new-template-full-titles-custom-2026" rel="self"/>
+    <category citation-format="numeric"/>
+    <category field="chemistry"/>
+    <summary>Numeric citations and full article titles, full italic journal names, bold volumes, parenthesized years, pages or article identifiers, and DOI when available. Based on user-supplied ChemistrySelect template.</summary>
+    <updated>2026-11-20T00:00:00+00:00</updated>
+  </info>
+  <macro name="author">
+    <names variable="author">
+      <name initialize-with=". " delimiter=", " and="none"/>
+      <substitute><names variable="editor"/></substitute>
+    </names>
+  </macro>
+  <macro name="journal-title">
+    <text variable="container-title" font-style="italic"/>
+  </macro>
+  <macro name="year">
+    <date variable="issued" prefix="(" suffix=")"><date-part name="year"/></date>
+  </macro>
+  <macro name="locator">
+    <choose>
+      <if variable="page"><text variable="page"/></if>
+      <else><text variable="article-number"/></else>
+    </choose>
+  </macro>
+  <macro name="doi">
+    <choose><if variable="DOI"><text variable="DOI" prefix="https://doi.org/"/></if></choose>
+  </macro>
+  <citation collapse="citation-number" delimiter=",">
+    <layout prefix="[" suffix="]" vertical-align="sup">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography entry-spacing="0" second-field-align="flush">
+    <layout>
+      <text variable="citation-number" prefix="[" suffix="]"/>
+      <group prefix=" " suffix=".">
+        <text macro="author" suffix=", "/>
+        <choose>
+          <if type="article-journal article-magazine article-newspaper" match="any">
+            <text variable="title" quotes="true" suffix=" "/>
+            <text macro="journal-title" suffix=" "/>
+            <text variable="volume" font-weight="bold" suffix=", "/>
+            <text macro="year"/>
+            <text macro="locator" prefix=": "/>
+          </if>
+          <else>
+            <text variable="title" quotes="true" suffix=", "/>
+            <text macro="journal-title" suffix=" "/>
+            <text variable="volume" font-weight="bold" suffix=", "/>
+            <text macro="year"/>
+            <text macro="locator" prefix=": "/>
+          </else>
+        </choose>
+        <text macro="doi" prefix=", "/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
